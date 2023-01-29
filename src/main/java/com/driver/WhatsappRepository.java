@@ -163,4 +163,7 @@ public class WhatsappRepository {
         return groupSize + messageCount + overallMessageCount;
 
     }
+    public String findMessage(Date start, Date end, int K){
+        return "Wait";
+    }
 }

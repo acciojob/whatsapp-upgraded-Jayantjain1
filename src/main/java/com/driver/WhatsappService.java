@@ -1,4 +1,5 @@
 package com.driver;
+import java.util.Date;
 import java.util.List;
 public class WhatsappService {
 
@@ -20,5 +21,8 @@ public class WhatsappService {
     }
     public int removeUser(User user) throws Exception {
         return whatsappRepository.RemoveUser(user);
+    }
+    public String findMessage(Date start, Date end, int K){
+        return whatsappRepository.findMessage(start , end , K);
     }
 }

@@ -13,16 +13,15 @@ public class WhatsappRepository {
     private int m_Count=0;
 
     public String createUser(String name, String mobile) throws Exception {
-        if(UserstringHashMap.containsKey(mobile)){
+        if(UserstringHashMap.containsKey(mobile))
+        {
             throw new Exception("User already exists");
         }
-        else{
-            User user = new User();
-            user.setName(name);
-            user.setMobile(mobile);
-            UserstringHashMap.put(mobile , user);
-            return "success";
-        }
+
+        User user=new User(name, mobile);
+        UserstringHashMap.put(mobile,user);
+
+        return "SUCCESS";
     }
     public int sendMessage(Message message , User sender , Group group) throws Exception {
         if(!groupUserHashMap.containsKey(group))
@@ -68,8 +67,7 @@ public class WhatsappRepository {
         return groupListHashMap.get(group).size();
     }
     public int createMessage(String content){
-        m_Count = m_Count++;
-        Message message = new Message(m_Count , content);
+        Message message=new Message(++m_Count,content);
         message.setTimestamp(new Date());
         list.add(message);
         return m_Count;
